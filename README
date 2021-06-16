@@ -1,0 +1,99 @@
+READ ME
+
+This software finds 4-fold degenerate sites (4fds) within a fasta sequence using gff annotation & extracts them from a vcf file on a SLURM cluster.
+
+
+
+Requirements
+  
+  - python 3.7.3; os, sys, subprocess, shutil, re, argparse, math
+  - samtools 1.9
+  - gatk4 4.1.4.0
+  
+  N.B. Software can be installed within a conda environment (see below).
+
+
+
+SETUP
+
+Create the initial working directory/sub-directories.
+
+  python pipe_4fds.py -setup [-p </path/to>] [-d <directory_name>]
+
+N.B. Working path/directory name are optional (see below). 
+
+
+
+PREPARE FILES
+
+Move the fasta, gff & (if also extracting sites) vcf files to the relevant sub-directories.
+
+i.e.
+
+  /ref.gen
+    sequence.fasta
+    
+  /gff
+    annotation.gff
+
+  /vcf
+    variants.vcf.gz
+
+
+
+INDEX
+
+Index reference genome.
+
+  python pipe_4fds.py -index
+
+
+
+FIND SITES
+
+Find 4fds coordinates within the fasta sequence including those where the codon is disrupted by introns (i.e. phase-1 & phase-2). 
+
+  python pipe_4fds.py -find
+  
+N.B. Two categories of 4fds sites are reported; (i) all sites i.e. any 4fds & (ii) consistent sites i.e. 4fds within all transcripts for a gene.
+     CDS or transcripts that cannot be assigned to a gene will be ignored & reported in additonal output files (may indicate that gff is not sorted)
+     as are any transcripts with ambiguous reading frames (i.e. a length not divisible by three)
+
+
+
+EXTRACT SITES
+
+Extract 4fds for individual scaffolds from a vcf file. 
+
+  python pipe_4fds.py -extract {all|consistent}
+
+
+
+
+MERGE EXTRACTED SITES
+
+Merge extracted per-scaffold 4fds vcfs into a genome-wide 4fds vcf. 
+
+  python pipe_4fds.py -merge {all|consistent}
+  
+  
+
+ADDITIONAL SETTINGS
+
+  Flag                    Default             Description
+
+  -pa <partition>         stage-specific      specify SLURM partition
+  -no <nodes>             stage-specific      specify SLURM nodes
+  -nt <ntasks>            stage-specific      specify SLURM ntasks
+  -me <memory[units]>     stage-specific      specify SLURM memory
+  -wt <HH:MM:SS>          stage-specific      specify SLURM walltime
+ 
+  -d <diretory_name>      ngs_pipe            specify working directory name
+  -p </path/to>           home path           specify working directory path
+  -u <user_name>          current user        specify SLURM user name
+  -m <email_address>      None                specify email address to receive SLURM notifications
+  -e <environment_name>   ngs_env             specify conda environment with software installed 
+  -l <limit>              100                 specify task submission limit i.e. how many tasks can be submitted at once
+  
+  -pipe                                       submit pipeline as a task itself; automatically submits tasks up to the submission limit from the hpcc
+  
