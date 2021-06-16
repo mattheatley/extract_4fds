@@ -95,5 +95,5 @@ ADDITIONAL SETTINGS
   -e <environment_name>   ngs_env             specify conda environment with software installed 
   -l <limit>              100                 specify task submission limit i.e. how many tasks can be submitted at once
   
-  -pipe                                       submit pipeline as a task itself; automatically submits tasks up to the submission limit from the hpcc
+  -pipe                                       submit pipeline itself; trickles new tasks up to the limit from the hpcc 
   
