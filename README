@@ -1,6 +1,6 @@
 READ ME
 
-This software finds 4-fold degenerate sites (4fds) within a fasta sequence using gff annotation & extracts them from a vcf file on a SLURM cluster.
+This software finds 4-fold degenerate sites (4fds) within an annotated fasta sequence & extracts them from a vcf file on a SLURM cluster.
 
 
 
