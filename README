@@ -54,7 +54,7 @@ Find 4fds coordinates within the fasta sequence.
   python pipe_4fds.py -find
   
 N.B. Two 4fds categories are reported; (i) all 4fds & (ii) 4fds consistently accross all transcripts of a given gene.
-     4fds will be identified within codons disrupted by introns (i.e. phase-1 & phase-2).
+     4fds within codons disrupted by introns (i.e. phase-1 & phase-2) are also identified.
      Any CDS/mRNA that are unassigned (i.e. parent not found) or ambiguous transcripts (i.e. length not divisible by three) are ignored.
 
 
