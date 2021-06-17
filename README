@@ -20,8 +20,6 @@ Create the initial working directory/sub-directories.
 
   python pipe_4fds.py -setup [-p </path/to>] [-d <directory_name>]
 
-N.B. Working path/directory name are optional (see below). 
-
 
 
 PREPARE FILES
@@ -51,13 +49,13 @@ Index reference genome.
 
 FIND SITES
 
-Find 4fds coordinates within the fasta sequence including those where the codon is disrupted by introns (i.e. phase-1 & phase-2). 
+Find 4fds coordinates within the fasta sequence. 
 
   python pipe_4fds.py -find
   
-N.B. Two categories of 4fds sites are reported; (i) all sites i.e. any 4fds & (ii) consistent sites i.e. 4fds within all transcripts for a gene.
-     CDS or transcripts that cannot be assigned to a gene will be ignored & reported in additonal output files (may indicate that gff is not sorted)
-     as are any transcripts with ambiguous reading frames (i.e. a length not divisible by three)
+N.B. Two 4fds categories are reported; (i) all 4fds & (ii) 4fds consistently accross all transcripts of a given gene.
+     4fds will be identified within codons disrupted by introns (i.e. phase-1 & phase-2).
+     Any CDS/mRNA that are unassigned (i.e. parent not found) or ambiguous transcripts (i.e. length not divisible by three) are ignored.
 
 
 
@@ -93,7 +91,7 @@ ADDITIONAL SETTINGS
   -u <user_name>          current user        specify SLURM user name
   -m <email_address>      None                specify email address to receive SLURM notifications
   -e <environment_name>   ngs_env             specify conda environment with software installed 
-  -l <limit>              100                 specify task submission limit i.e. how many tasks can be submitted at once
+  -l <limit>              100                 specify concurrent task submission limit
   
-  -pipe                                       submit pipeline itself; trickles new tasks up to the limit from the hpcc 
+  -pipe                                       submit pipeline itself; submits new tasks up to the limit from the hpcc 
   
