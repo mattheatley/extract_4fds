@@ -58,7 +58,7 @@ N.B.
  Two 4fds categories are reported; (i) all 4fds & (ii) those 4fds within all transcripts of a given gene.
  4fds within codons disrupted by introns (i.e. phase-1 & phase-2) are also identified.
  Any unassigned CDS/mRNA (i.e. parent not found) or ambiguous transcripts (i.e. indiscernible codons) are ignored.
- (see unassigned_CDS, unassigned_mRNA & ignore transcripts respectively)
+ (see unassigned_CDS, unassigned_mRNA & ignore_dtranscripts respectively in the output directory)
 
 
 EXTRACT SITES
