@@ -10,13 +10,13 @@ Requirements
   - samtools 1.9
   - gatk4 4.1.4.0
   
-  N.B. Software can be installed within a conda environment (see below).
+N.B. If software is installed within a conda environment the environment name must be supplied at each stage (see below).
 
 
 
 SETUP
 
-Create the initial working directory/sub-directories.
+Create the initial default/user-specified working & sub-directories.
 
   python pipe_4fds.py -setup [-p </path/to>] [-d <directory_name>]
 
