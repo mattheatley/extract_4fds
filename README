@@ -10,7 +10,8 @@ Requirements
   - samtools 1.9
   - gatk4 4.1.4.0
   
-N.B. If software is installed within a conda environment the environment name must be supplied at each stage (see below).
+N.B. 
+ If software is installed within a conda environment the environment name must be supplied at each stage (see below).
 
 
 
@@ -53,10 +54,11 @@ Find 4fds coordinates within the fasta sequence.
 
   python pipe_4fds.py -find
   
-N.B. Two 4fds categories are reported; (i) all 4fds & (ii) those 4fds consistently within all transcripts of a given gene.
-     4fds within codons disrupted by introns (i.e. phase-1 & phase-2) are also identified.
-     Any unassigned CDS/mRNA (i.e. parent not found) or ambiguous transcripts (i.e. indiscernible codons) are ignored.
-
+N.B. 
+ Two 4fds categories are reported; (i) all 4fds & (ii) those 4fds within all transcripts of a given gene.
+ 4fds within codons disrupted by introns (i.e. phase-1 & phase-2) are also identified.
+ Any unassigned CDS/mRNA (i.e. parent not found) or ambiguous transcripts (i.e. indiscernible codons) are ignored.
+ (see unassigned_CDS, unassigned_mRNA & ignore transcripts respectively)
 
 
 EXTRACT SITES
