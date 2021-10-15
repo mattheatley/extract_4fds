@@ -42,7 +42,7 @@ setup, indexing, finding, extracting, merging, submitting_self, testing, user, w
 
 *_, memory, walltime = hpcc_overides # define hpcc overides
 if memory and (sum(memory.count(unit) for unit in ['k','m','g','t']) != 1 or not memory.rstrip('kmgt').isdigit()): parser.error(f"argument -me: invalid str format: '{memory}'") # check memory format
-if walltime and (len(walltime) != 8 or walltime[2:6:3].count(':') != 2 or not walltime.replace(':','').isdigit()): parser.error(f"argument -wt: invalid str format: '{walltime}'") # check walltime format
+if walltime and ( not 8 <= len(walltime) <= 9 or walltime[-6:-2:3].count(':') != 2 or not walltime.replace(':','').isdigit()): parser.error(f"argument -wt: invalid str format: '{walltime}'") # check walltime format
 
 (pipe_flag, *_), *_ = [ info.option_strings for info in additional._group_actions ] # extract pipe flag
 
