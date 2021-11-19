@@ -18,7 +18,7 @@ def ezSub(i, check, user, limit): # auto submission
     if total > limit: 
         print(f'\nSUBMISSION LIMIT REACHED: WAITING TO SUBMIT TASK {i}...')
         time.sleep(check)
-        ezSub(i, user, limit) # check every 5 mins if task can be submitted
+        ezSub(i, check, user, limit) # check every 5 mins if task can be submitted
     else: 
         return # submit task (with dependancy) if possible
 
