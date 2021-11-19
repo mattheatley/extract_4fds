@@ -260,7 +260,7 @@ else: # proceed with alternative pipeline mode
             print('\nSUBMITTING TASKS...')                    
             with open(id_file, 'a+') as id_output:
                 for i,script in enumerate(scripts,1): 
-                    ezSub(i=i, check=60, user=user, limit=limit) # maintain tasks below parellel task limit
+                    ezSub(i=i, check=600, user=user, limit=limit) # maintain tasks below parellel task limit
                     sub_id = CAPTURE(f'sbatch -d singleton {script}') # submit task
                     print(sub_id, script, sep='\t', file=id_output, flush=True) # record task job id & shell script
             print('\tALL TASKS SUBMITTED\n')
